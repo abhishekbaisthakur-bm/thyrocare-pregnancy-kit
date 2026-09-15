@@ -154,8 +154,9 @@ h3.h3{
 }
 .chemist span{
   color:var(--white);font-weight:600;
-  font-size:clamp(12px,1.5vw,16px);line-height:1.3;
+  font-size:clamp(20px,2vw,25px);line-height:1.3;
   text-align:right;max-width:11ch;
+  transform:translate(-12px, 10px);
 }
 @media(max-width:640px){
   .chemist{width:132px;border-bottom-left-radius:100%;padding-top:12px;padding-right:12px}
@@ -773,7 +774,7 @@ ol.steps ul li{margin-bottom:3px}
       <a class="door" href="#redeem">
         <span class="door-tag">I have the coupon from inside the pack</span>
         <span class="door-h">Book my Beta hCG blood test</span>
-        <span class="door-p">What the Beta hCG test confirms, when to take it, and the six steps to book home collection at 50% off.</span>
+        <span class="door-p">What the Beta hCG test confirms, when to take it, and the steps to book home collection at 50% off.</span>
         <span class="door-go">Go to redemption
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
@@ -989,15 +990,15 @@ ol.steps ul li{margin-bottom:3px}
           <text x="22" y="72" font-family="Figtree, sans-serif" font-size="17" font-weight="700" fill="#5B6782">C</text>
           <text x="22" y="164" font-family="Figtree, sans-serif" font-size="17" font-weight="700" fill="#5B6782">T</text>
           <rect x="38" y="46" width="44" height="150" rx="5" fill="#fff" stroke="#C8D0E0" stroke-width="2"/>
-          <rect id="lineC" x="44" y="62" width="32" height="7" rx="3.5" fill="#E5457E" opacity="1" style="transition:opacity .3s ease"/>
-          <rect id="lineT" x="44" y="152" width="32" height="7" rx="3.5" fill="#E5457E" opacity="1" style="transition:opacity .3s ease"/>
+          <rect id="lineC" x="44" y="62" width="32" height="7" rx="3.5" fill="#E5457E" opacity="0" style="transition:opacity .3s ease"/>
+          <rect id="lineT" x="44" y="152" width="32" height="7" rx="3.5" fill="#E5457E" opacity="0" style="transition:opacity .3s ease"/>
         </svg>
         <p class="reader-timer">Read within 5 minutes</p>
       </div>
 
       <div>
         <div class="choices" role="group" aria-label="Select what you see on your device">
-          <button type="button" class="choice" data-r="pos" data-c="1" data-t="1" aria-pressed="true">
+          <button type="button" class="choice" data-r="pos" data-c="1" data-t="1" aria-pressed="false">
             <span class="choice-dot" aria-hidden="true"><i></i><i></i></span>
             Two clear pink lines, at C and at T
           </button>
@@ -1019,14 +1020,13 @@ ol.steps ul li{margin-bottom:3px}
           </button>
         </div>
 
-        <div class="verdict is-pos" id="verdict" role="status" aria-live="polite">
+        <div class="verdict" id="verdict" role="status" aria-live="polite">
           <p class="verdict-label">Your result</p>
-          <h3 id="vTitle">Positive</h3>
+          <h3 id="vTitle">Select the lines visible on your device</h3>
           <div id="vBody">
-            <p>A line at C and a line at T means the test has detected hCG. This indicates a positive result.</p>
-            <p>A home kit is a screening test. Confirm the result with a Beta hCG blood test and consult a qualified gynaecologist before starting any treatment.</p>
+            <p>Choose an option above to see what the result means.</p>
           </div>
-          <a class="pill" href="#redeem" id="vCta">Book your Beta hCG test
+          <a class="pill" href="#redeem" id="vCta" style="display:none">Book your Beta hCG test
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -1080,23 +1080,51 @@ ol.steps ul li{margin-bottom:3px}
         <span class="now">₹399</span>
         <span class="off">50% off</span>
       </div>
-      <p class="lede lede--light">Free home sample collection. Your coupon code is printed on the insert inside the pouch — keep it with you before you begin.</p>
+      <p class="lede lede--light">Free home sample collection at serviceable locations. Your coupon code is printed on the insert inside the pouch — keep it with you before you begin.</p>
 
       <ol class="rsteps">
-        <li><div><b>Scan the QR</b><span>On the coupon insert, or tap the button below.</span></div></li>
-        <li><div><b>Enter the code</b><span>The code printed on your coupon insert.</span></div></li>
-        <li><div><b>Select the test</b><span>Beta hCG will be pre-applied to your cart.</span></div></li>
-        <li><div><b>Enter address &amp; slot</b><span>Pick a home collection time that suits you.</span></div></li>
-        <li><div><b>Enter your details</b><span>Name, age and contact number for the report.</span></div></li>
-        <li><div><b>Confirm the booking</b><span>Pay ₹399 using the link sent to your registered mobile number.</span></div></li>
-      </ol>
+  <li><div>
+    <b>Scan the QR</b>
+    <span>Scan the QR on your coupon insert, or tap the redemption button below.</span>
+  </div></li>
+
+  <li><div>
+    <b>Enter your coupon code</b>
+    <span>Enter the code printed on your coupon insert.</span>
+  </div></li>
+
+  <li><div>
+    <b>Enter your phone number and PIN code</b>
+    <span>Provide your phone number, then your PIN code to check serviceability.</span>
+  </div></li>
+
+  <li><div>
+    <b>Fill in your details</b>
+    <span>Enter the requested details and proceed.</span>
+  </div></li>
+
+  <li><div>
+    <b>Select your slot</b>
+    <span>Choose an available home sample collection slot.</span>
+  </div></li>
+
+  <li><div>
+    <b>Enter your address and email</b>
+    <span>Add your collection address and email address, then confirm your booking.</span>
+  </div></li>
+
+  <li><div>
+    <b>Receive confirmation and pay</b>
+    <span>Booking details will be sent to your registered phone number. Pay ₹399 once you receive the payment link, or when the phlebotomist visits, before sample collection.</span>
+  </div></li>
+</ol>
 
       <div class="cta-row">
         <!-- TODO: point to the live redemption route -->
         <a class="pill pill--lg" href="https://www.thyrocare.com/redeem">Redeem your coupon
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="pill pill--lg pill--ghost" href="#faq">Code not working?</a>
+        <a class="pill pill--lg pill--ghost" href="#coupon-help">Code not working?</a>
       </div>
 
       <div class="alts">
@@ -1108,7 +1136,7 @@ ol.steps ul li{margin-bottom:3px}
       <p class="terms">
         Not to be sold separately. The offer is valid only with the Thyrocare Pregnancy Kit and cannot be exchanged for cash or clubbed with other offers. One coupon per kit.
         <!-- TODO: confirm and insert before go-live -->
-        Valid until [VALIDITY DATE]. Home collection currently available in [CITY LIST]. Payment of ₹399 is made through the secure link sent to your registered mobile number after booking.
+        Valid until expiry of the pregnancy test kit. Home collection currently available in specific locations, please check availability. Payment of ₹399 is to be made through the secure link sent to your registered mobile number after booking.
       </p>
     </div>
   </div>
@@ -1205,7 +1233,7 @@ ol.steps ul li{margin-bottom:3px}
       </details>
       <details>
         <summary>Do I pay for the Beta hCG test, and when?</summary>
-        <div class="faq-body"><p>Yes. The coupon gives you 50% off, bringing the Beta hCG test from ₹800 to ₹399. You pay ₹399 through the secure payment link sent to your registered mobile number after you confirm the booking. Home sample collection is included.</p></div>
+        <div class="faq-body"><p>Yes. The coupon gives you 50% off, bringing the Beta hCG test from ₹800 to ₹399. Booking details will be sent to your registered phone number. You can pay ₹399 once you receive the payment link, or when the phlebotomist visits, before sample collection. Home sample collection is included.</p></div>
       </details>
       <details>
         <summary>Is home collection available where I live?</summary>
@@ -1213,13 +1241,13 @@ ol.steps ul li{margin-bottom:3px}
       </details>
       <details>
         <summary>How long is my coupon valid?</summary>
-        <div class="faq-body"><p>The validity period is printed on your coupon insert. <!-- TODO: replace with the confirmed window -->[VALIDITY WINDOW]. One coupon can be used once, and only with a Thyrocare Pregnancy Kit.</p></div>
+        <div class="faq-body"><p>One coupon can be used once, and only with a Thyrocare Pregnancy Kit.</p></div>
       </details>
       <details>
         <summary>Do I need to fast before the blood test?</summary>
         <div class="faq-body"><p>No. A Beta hCG blood test does not require fasting. You can book any available slot without changing what you eat or drink beforehand.</p></div>
       </details>
-      <details>
+      <details id="coupon-help" style="scroll-margin-top:calc(var(--head-h) + 20px)">
         <summary>My coupon code isn't being accepted.</summary>
         <div class="faq-body"><p>Check that you've entered the code exactly as printed, including letters and numbers, with no spaces. If it still doesn't work, message us on WhatsApp at 9870 666 333 or call 022 3090 0000 with your code and we'll sort it out.</p></div>
       </details>
@@ -1271,7 +1299,29 @@ ol.steps ul li{margin-bottom:3px}
 <script>
 (function(){
   'use strict';
+function openCouponHelp() {
+  var help = document.getElementById('coupon-help');
+  if (!help) return;
 
+  help.open = true;
+
+  var section = help.closest('.reveal');
+  if (section) section.classList.add('in');
+
+  help.scrollIntoView({ block: 'start' });
+}
+
+document.querySelectorAll('a[href="#coupon-help"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    openCouponHelp();
+  });
+});
+
+window.addEventListener('hashchange', function() {
+  if (window.location.hash === '#coupon-help') openCouponHelp();
+});
+
+if (window.location.hash === '#coupon-help') openCouponHelp();
   /* ---------- Result reader ---------- */
   var copy = {
     'pos': {
