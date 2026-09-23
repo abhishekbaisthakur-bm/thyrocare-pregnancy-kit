@@ -811,24 +811,24 @@ ol.steps ul li{margin-bottom:3px}
 
     <div class="rail" role="group" aria-label="Choose a video">
       <button class="rail-item" type="button" aria-current="true"
-              data-yt="RbVoO6XSTzI" data-kicker="Brand film" data-title="1 kit. 2 assurances." data-dur="0:45">
+              data-yt="S_gFUaPb6_0" data-kicker="Brand film" data-title="1 kit. 2 assurances." data-dur="0:34">
         <span class="rail-thumb"></span>
         <span class="rail-meta"><b>1 kit. 2 assurances.</b><span>Brand film · 0:45</span></span>
       </button>
       <button class="rail-item" type="button"
-              data-yt="RbVoO6XSTzI" data-kicker="How-to" data-title="Using the kit in 60 seconds" data-dur="0:10">
+              data-yt="V69J1VSjbqw" data-kicker="How-to" data-title="Using the kit in 60 seconds" data-dur="0:10">
         <span class="rail-thumb"></span>
-        <span class="rail-meta"><b>Using the kit in 60 seconds</b><span>How-to · 1:00</span></span>
+        <span class="rail-meta"><b>Using the kit in 60 seconds</b><span>How-to · 1:21</span></span>
       </button>
       <button class="rail-item" type="button"
-              data-yt="RbVoO6XSTzI" data-kicker="How-to" data-title="Reading your result" data-dur="0:50">
+              data-yt="wQ9U132rxXA" data-kicker="How-to" data-title="Reading your result" data-dur="0:50">
         <span class="rail-thumb"></span>
-        <span class="rail-meta"><b>Reading your result</b><span>How-to · 0:50</span></span>
+        <span class="rail-meta"><b>Reading your result</b><span>How-to · 0:51</span></span>
       </button>
       <button class="rail-item" type="button"
-              data-yt="RbVoO6XSTzI" data-kicker="How-to" data-title="Redeeming your coupon" data-dur="1:10">
+              data-yt="yT2jOBh7tCk" data-kicker="How-to" data-title="Redeeming your coupon" data-dur="1:10">
         <span class="rail-thumb"></span>
-        <span class="rail-meta"><b>Redeeming your coupon</b><span>How-to · 1:10</span></span>
+        <span class="rail-meta"><b>Redeeming your coupon</b><span>How-to · 0:50</span></span>
       </button>
     </div>
   </div>
@@ -959,7 +959,7 @@ ol.steps ul li{margin-bottom:3px}
         <!-- ══ INLINE DEMO VIDEO — swap REPLACE_ID_2 for the real ID ══ -->
         <div class="vid-inline">
           <div class="vid-main">
-            <button class="facade" type="button" data-yt="REPLACE_ID_2" aria-label="Play: using the kit in 60 seconds">
+            <button class="facade" type="button" data-yt="V69J1VSjbqw" aria-label="Play: using the kit in 60 seconds">
               <span class="facade-play" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
               </span>
@@ -1392,10 +1392,14 @@ if (window.location.hash === '#coupon-help') openCouponHelp();
       return;
     }
     var f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+    f.src =
+  "https://www.youtube-nocookie.com/embed/" +
+  encodeURIComponent(id) +
+  "?autoplay=1&rel=0&playsinline=1";
     f.title = 'Thyrocare Pregnancy Kit video';
     f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
     f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
     container.innerHTML = '';
     container.appendChild(f);
   }
